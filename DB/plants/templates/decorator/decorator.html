@@ -1,0 +1,43 @@
+{% extends 'main/layout.html' %}
+{% block title %} Декораторы {% endblock %}
+{% block content  %}
+<div class="features">
+    <h1>Декораторы</h1>
+    {% if decorator %}
+        <table border="1" class="tab">
+            <tr>
+                <td> ID </td>
+                <td> ФИО</td>
+                <td> Адрес </td>
+                <td> Телефон </td>
+                <td> ВУЗ </td>
+                <td> Категория </td>
+                <td> Фирма </td>
+                <td> Изменение </td>
+                <td> Удаление </td>
+            </tr>
+        {% for el in decorator %}
+            <div  >
+                <tr>
+                    <td> {{el.id}} </td>
+                    <td> {{el.name}} </td>
+                    <td> {{el.adress}}  </td>
+                    <td> {{el.phone}}  </td>
+                    <td> {{el.VUZ}}  </td>
+                    <td> {{el.category}}  </td>
+                    <td> {{el.firm}}  </td>
+                    <td> <a href="{% url 'upddcr' el.id %}" class="btn btn-info"> Изменить</a> </td>
+                    <td> <a href="{% url 'deldcr' el.id %}" class="btn btn-danger"> Удалить</a> </td>
+                </tr>
+            </div>
+        {% endfor %}
+            </table>
+    {% else %}
+        <p>У вас нет записи</p>
+    {%endif%}
+    <br>
+    <a href="{% url 'createdcr' %}"> <button class = "btn btn-success">Добавить запись</button> </a>
+
+</div>
+
+{% endblock %}

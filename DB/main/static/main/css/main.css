@@ -1,0 +1,56 @@
+body{
+    background: #2c2c2c;
+
+
+}
+aside{
+    float: left;
+    background: #181818;
+    width: 20%;
+    padding: 2.5%;
+    height: 100vh;
+    color: white;
+}
+aside h3{
+    font-size: 50px;
+}
+aside ul {list-style: none}
+aside ul li {
+    font-size: 22px;
+    color: white;
+    display: block;
+    margin-top: 20px;
+}
+
+aside ul li:hover, aside ul a:hover{
+    color: #eb5959;
+    text-decoration: none;
+}
+main .features{
+    float: left;
+    color: white;
+    margin-top: 100px;
+    text-align: center;
+    width: 75%;
+}
+main .features h1 {font-size: 60px;}
+
+main .features p {font-size: 25px;max-width: 400px; margin: 20px auto}
+
+
+table{
+    border: 1px solid white;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%
+}
+form{
+    margin-left: 32%;
+    width: 500px;
+    margin-top: 50px;
+    align: center
+}
+span{
+    margin-right: 20px;
+}

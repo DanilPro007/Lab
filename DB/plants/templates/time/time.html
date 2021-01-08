@@ -1,0 +1,35 @@
+{% extends 'main/layout.html' %}
+{% block title %} График {% endblock %}
+{% block content  %}
+<div class="features">
+    <h1>График</h1>
+    {% if time %}
+        <table border="1" class="tab">
+            <tr>
+                <td> ID </td>
+                <td> Дата работы с насаждением </td>
+                <td> ФИО сотрудника </td>
+                <td> Изменение </td>
+                <td> Удаление </td>
+            </tr>
+        {% for el in time %}
+            <div  >
+                <tr>
+                    <td> {{el.id}} </td>
+                    <td> {{el.date}} </td>
+                    <td> {{el.name}}  </td>
+                    <td> <a href="{% url 'updtm' el.id %}" class="btn btn-info"> Изменить</a> </td>
+                    <td> <a href="{% url 'deltm' el.id %}" class="btn btn-danger"> Удалить</a> </td>
+                </tr>
+            </div>
+        {% endfor %}
+            </table>
+    {% else %}
+        <p>У вас нет записи</p>
+    {%endif%}
+    <br>
+    <a href="{% url 'createtm' %}"> <button class = "btn btn-success">Добавить запись</button> </a>
+
+</div>
+
+{% endblock %}

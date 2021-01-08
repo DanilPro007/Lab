@@ -1,0 +1,87 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet"href = 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'>
+    <link rel="stylesheet"href ='{% static 'main/css/auto.css' %}'>
+
+    <title>Document</title>
+</head>
+<body>
+<!--<h3>Register</h3>-->
+
+<!--<form method="POST" action="">-->
+<!--    {% csrf_token %}-->
+<!--    {{form.username.label}}-->
+<!--    {{form.username}}-->
+
+<!--    {{form.email.label}}-->
+<!--    {{form.email}}-->
+
+<!--    {{form.password1.label}}-->
+<!--    {{form.password1}}-->
+
+<!--    {{form.password2.label}}-->
+<!--    {{form.password2}}-->
+
+
+
+
+
+
+<div class="login">
+    <div class="login-screen">
+      <div class="app-title">
+        <h1>Регистрация</h1>
+      </div>
+        <form method="POST" action="">
+        {% csrf_token %}
+          <div class="login-form">
+            <div class="control-group">
+            {{form.username}}
+            <label class="login-field-icon fui-user" ></label>
+            </div>
+
+            <div class="control-group">
+            {{form.email}}
+            <label class="login-field-icon fui-lock" ></label>
+            </div>
+
+              <div class="control-group">
+            {{form.password1}}
+            <label class="login-field-icon fui-lock" ></label>
+            </div>
+
+              <div class="control-group">
+            {{form.password2}}
+            <label class="login-field-icon fui-lock" ></label>
+            </div>
+            <input class="btn  btn-large btn-block" type="submit" href="/login" name="Create User" >
+
+<!--            <a class="btn btn-primary btn-large btn-block" href="#">login</a>-->
+            {{form.errors}}
+            <a class="login-link" href="/login">Уже есть учетная запись</a>
+          </div>
+            </form>
+
+    </div>
+
+  </div>
+<script>
+   var form_filds = document.getElementsByTagName('input')
+    form_filds[1].placeholder = 'Имя пользователя' ;
+   form_filds[2].placeholder = 'Почта' ;
+   form_filds[3].placeholder = 'Пароль' ;
+   form_filds[4].placeholder = 'Повторите пароль' ;
+
+</script>
+
+</body>
+</html>
+
+
+

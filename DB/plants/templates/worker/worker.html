@@ -1,0 +1,41 @@
+{% extends 'main/layout.html' %}
+{% block title %} Служители парка {% endblock %}
+{% block content  %}
+<div class="features">
+    <h1>Данные о служителях парка</h1>
+    {% if worker %}
+        <table border="1" class="tab">
+            <tr>
+                <td> ID </td>
+                <td> ФИО </td>
+                <td> Адрес </td>
+                <td> Телефон</td>
+                <td> Фирмы </td>
+                <td> Растения </td>
+                <td> Изменение </td>
+                <td> Удаление </td>
+            </tr>
+        {% for el in worker %}
+            <div  >
+                <tr>
+                    <td>  {{el.id}} </td>
+                    <td> {{el.name}} </td>
+                    <td> {{el.adress}} </td>
+                    <td> {{el.phone}}  </td>
+                    <td> {{el.firm}}  </td>
+                    <td> {{el.plant}}</td>
+                    <td> <a href="{% url 'updwrk' el.id %}" class="btn btn-info"> Изменить</a> </td>
+                    <td> <a href="{% url 'delwrk' el.id %}" class="btn btn-danger"> Удалить</a> </td>
+                </tr>
+            </div>
+        {% endfor %}
+            </table>
+    {% else %}
+        <p>У вас нет записи</p>
+    {%endif%}
+    <br>
+    <a href="{% url 'createwrk' %}"> <button class = "btn btn-success">Добавить запись</button> </a>
+
+</div>
+
+{% endblock %}

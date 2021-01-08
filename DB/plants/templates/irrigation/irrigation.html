@@ -1,0 +1,39 @@
+{% extends 'main/layout.html' %}
+{% block title %} Полив {% endblock %}
+{% block content  %}
+<div class="features">
+    <h1>Время полива растений</h1>
+    {% if irrigation %}
+        <table border="1" class="tab">
+            <tr>
+                <td> ID </td>
+                <td> Название растения </td>
+                <td> Нома воды </td>
+                <td> Время полива</td>
+                <td> Частота полива </td>
+                <td> Изменение </td>
+                <td> Удаление </td>
+            </tr>
+        {% for el in irrigation %}
+            <div  >
+                <tr>
+                    <td> {{el.id}} </td>
+                    <td> {{el.plant}} </td>
+                    <td> {{el.water}}  </td>
+                    <td> {{el.time}}  </td>
+                    <td> {{el.date}} </td>
+                    <td> <a href="{% url 'updir' el.id %}" class="btn btn-info"> Изменить</a> </td>
+                    <td> <a href="{% url 'delir' el.id %}" class="btn btn-danger"> Удалить</a> </td>
+                </tr>
+            </div>
+        {% endfor %}
+            </table>
+    {% else %}
+        <p>У вас нет записи</p>
+    {%endif%}
+    <br>
+    <a href="{% url 'createir' %}"> <button class = "btn btn-success">Добавить запись</button> </a>
+
+</div>
+
+{% endblock %}

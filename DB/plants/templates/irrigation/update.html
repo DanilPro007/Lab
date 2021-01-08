@@ -1,0 +1,17 @@
+{% extends 'main/layout.html' %}
+{% block title %} Форма {% endblock %}
+{% block content  %}
+<div class="features">
+    <h1>Изменить данные</h1>
+
+    <form method = "post" >
+        {% csrf_token %}
+        {{form.plant}} <br>
+        {{form.water}}<br>
+        {{form.time}}<br>
+        {{form.date}}<br>
+        <span>{{error}}</span>
+        <button class="btn btn-info" type="submit">Изменить</button>
+    </form>
+</div>
+{% endblock %}

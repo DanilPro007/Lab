@@ -1,0 +1,35 @@
+{% extends 'main/layout.html' %}
+{% block title %} Фирмы {% endblock %}
+{% block content  %}
+<div class="features">
+    <h1>Фирмы</h1>
+    {% if firms %}
+        <table border="1" class="tab">
+            <tr>
+                <td> ID </td>
+                <td> Название фирмы </td>
+                <td> Юридический адрес </td>
+                <td> Изменение </td>
+                <td> Удаление </td>
+            </tr>
+        {% for el in firms %}
+            <div  >
+                <tr>
+                    <td> {{el.id}} </td>
+                    <td> {{el.name}} </td>
+                    <td> {{el.adress}}  </td>
+                    <td> <a href="{% url 'updfrm' el.id %}" class="btn btn-info"> Изменить</a> </td>
+                    <td> <a href="{% url 'delfrm' el.id %}" class="btn btn-danger"> Удалить</a> </td>
+                </tr>
+            </div>
+        {% endfor %}
+            </table>
+    {% else %}
+        <p>У вас нет записи</p>
+    {%endif%}
+    <br>
+    <a href="{% url 'createfrm' %}"> <button class = "btn btn-success">Добавить запись</button> </a>
+
+</div>
+
+{% endblock %}

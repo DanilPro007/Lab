@@ -1,0 +1,39 @@
+{% extends 'main/layout.html' %}
+{% block title %} Растения {% endblock %}
+{% block content  %}
+<div class="features">
+    <h1>Растения</h1>
+    {% if plants %}
+        <table border="1" class="tab">
+            <tr>
+                <td> ID </td>
+                <td> Название </td>
+                <td> Возраст (в годах) </td>
+                <td> Дата высадки </td>
+                <td> Tип </td>
+                <td> Изменение </td>
+                <td> Удаление </td>
+            </tr>
+        {% for el in plants %}
+            <div  >
+                <tr>
+                    <td> {{el.id}} </td>
+                    <td> {{el.title}} </td>
+                    <td> {{el.age}}  </td>
+                    <td> {{el.date}}  </td>
+                    <td> {{el.type}} </td>
+                    <td> <a href="{% url 'upd' el.id %}" class="btn btn-info"> Изменить</a> </td>
+                    <td> <a href="{% url 'del' el.id %}" class="btn btn-danger"> Удалить</a> </td>
+                </tr>
+            </div>
+        {% endfor %}
+            </table>
+    {% else %}
+        <p>У вас нет записи</p>
+    {%endif%}
+    <br>
+    <a href="{% url 'createpl' %}"> <button class = "btn btn-success">Добавить запись</button> </a>
+
+</div>
+
+{% endblock %}
