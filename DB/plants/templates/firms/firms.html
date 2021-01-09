@@ -9,6 +9,7 @@
                 <td> ID </td>
                 <td> Название фирмы </td>
                 <td> Юридический адрес </td>
+                <td> Просмотр </td>
                 <td> Изменение </td>
                 <td> Удаление </td>
             </tr>
@@ -18,6 +19,7 @@
                     <td> {{el.id}} </td>
                     <td> {{el.name}} </td>
                     <td> {{el.adress}}  </td>
+                    <td> <a href="{% url 'prosfrm' el.id %}" class="btn btn-light">Посмотреть детально</a> </td>
                     <td> <a href="{% url 'updfrm' el.id %}" class="btn btn-info"> Изменить</a> </td>
                     <td> <a href="{% url 'delfrm' el.id %}" class="btn btn-danger"> Удалить</a> </td>
                 </tr>

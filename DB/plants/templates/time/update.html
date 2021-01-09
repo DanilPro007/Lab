@@ -2,13 +2,13 @@
 {% block title %} Форма {% endblock %}
 {% block content  %}
 <div class="features">
-    <h1>Изменение данных</h1>
+    <h1>Детали</h1>
 
     <form method = "post" >
         {% csrf_token %}
-        {{form.id}} <br>
-        <span>{{error}}</span>
-        <button class="btn btn-success" type="submit">Изменить</button>
+        <p>{{time.date}}</p>
+        <p>{{time.name}}</p>
+        <a href="/time" class="btn btn-light">Вернуться</a>
     </form>
 </div>
 {% endblock %}

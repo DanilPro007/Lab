@@ -1,8 +1,8 @@
-from .models import Articles,Irrigation,Firms,Worker,Decorator,Time
+from .models import Plants,Irrigation,Firms,Worker,Decorator,Time
 from django.forms import ModelForm, TextInput, NumberInput, DateInput, ModelChoiceField,TimeInput,Textarea
-class ArticlesForm(ModelForm):
+class PlantsForm(ModelForm):
     class Meta:
-        model = Articles
+        model = Plants
         fields = ['title','age','date','type']
 
         widgets={
@@ -114,6 +114,10 @@ class DecoratorForm(ModelForm):
             "phone": TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Телефон'
+            }),
+            "ed": TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Образование'
             }),
             "VUZ": TextInput(attrs={
                 'class': 'form-control',

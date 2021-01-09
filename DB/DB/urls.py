@@ -23,5 +23,5 @@ urlpatterns = [
     path ('',include('main.urls')),
     path ('plants/',include('plants.urls')),
     path ('',include('plants.urls')),
-    path ('auto/',include('auto.urls'))
+    path ('',include('auto.urls'))
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

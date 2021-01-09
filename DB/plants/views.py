@@ -1,30 +1,34 @@
 from django.shortcuts import render,redirect
-from .models import Articles, Irrigation,Firms,Worker, Decorator,Time
-from .forms import ArticlesForm, IrrigationForm,FirmsForm,WorkerForm, DecoratorForm,TimeForm
-from django.views.generic import UpdateView, DeleteView
+from .models import Plants, Irrigation,Firms,Worker, Decorator,Time
+from .forms import PlantsForm, IrrigationForm,FirmsForm,WorkerForm, DecoratorForm,TimeForm
+from django.views.generic import UpdateView, DeleteView, DetailView
 
 def plants_home(request):
-    plants = Articles.objects.all()
+    plants = Plants.objects.all()
     return render(request, 'plants/plants.html', {'plants':plants})
 
 class plantsUpdateView(UpdateView):
-    model = Articles
+    model = Plants
     template_name = 'plants/create.html'
-    form_class = ArticlesForm
+    form_class = PlantsForm
 class plantsDeleteView(DeleteView):
-    model = Articles
+    model = Plants
     success_url = '/plants'
     template_name = 'plants/delete.html'
+class plantsViewView(DetailView):
+    model = Plants
+    template_name = 'plants/update.html'
+    context_object_name = 'plants'
 def createpl (request):
     error=''
     if request.method =='POST':
-        form = ArticlesForm(request.POST)
+        form = PlantsForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('plt')
         else:
             error = 'Форма была неверной'
-    form =ArticlesForm()
+    form =PlantsForm()
     data={
         'form':form,
         'error':error
@@ -53,13 +57,16 @@ def createir (request):
 
 class irrigationUpdateView(UpdateView):
     model = Irrigation
-    template_name = 'irrigation/update.html'
+    template_name = 'irrigation/create.html'
     form_class = IrrigationForm
 class irrigationDeleteView(DeleteView):
     model = Irrigation
     success_url = '/irrigation'
     template_name = 'irrigation/delete.html'
-
+class irrigationViewView(DetailView):
+    model = Irrigation
+    template_name = 'irrigation/update.html'
+    context_object_name = 'irrigation'
 
 
 def firms_home(request):
@@ -92,7 +99,10 @@ class firmsDeleteView(DeleteView):
     success_url = '/firms'
     template_name = 'firms/delete.html'
 
-
+class firmsViewView(DetailView):
+    model = Firms
+    template_name = 'firms/update.html'
+    context_object_name = 'firms'
 
 
 def worker_home(request):
@@ -127,6 +137,10 @@ class workerDeleteView(DeleteView):
     success_url = '/worker'
     template_name = 'worker/delete.html'
 
+class workerViewView(DetailView):
+    model = Worker
+    template_name = 'worker/update.html'
+    context_object_name = 'worker'
 
 def decorator_home(request):
     decorator = Decorator.objects.all()
@@ -157,7 +171,10 @@ class decoratorDeleteView(DeleteView):
     model = Decorator
     success_url = '/decorator'
     template_name = 'decorator/delete.html'
-
+class decoratorViewView(DetailView):
+    model = Decorator
+    template_name = 'decorator/update.html'
+    context_object_name = 'decorator'
 
 def time_home(request):
     time = Time.objects.order_by('-date')
@@ -188,3 +205,8 @@ class timeDeleteView(DeleteView):
     model = Time
     success_url = '/time'
     template_name = 'time/delete.html'
+
+class timeViewView(DetailView):
+    model = Time
+    template_name = 'time/update.html'
+    context_object_name = 'time'

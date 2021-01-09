@@ -11,6 +11,7 @@
                 <td> Возраст (в годах) </td>
                 <td> Дата высадки </td>
                 <td> Tип </td>
+                <td> Просмотр </td>
                 <td> Изменение </td>
                 <td> Удаление </td>
             </tr>
@@ -22,6 +23,7 @@
                     <td> {{el.age}}  </td>
                     <td> {{el.date}}  </td>
                     <td> {{el.type}} </td>
+                    <td> <a href="{% url 'prospl' el.id %}" class="btn btn-light">Посмотреть детально</a> </td>
                     <td> <a href="{% url 'upd' el.id %}" class="btn btn-info"> Изменить</a> </td>
                     <td> <a href="{% url 'del' el.id %}" class="btn btn-danger"> Удалить</a> </td>
                 </tr>

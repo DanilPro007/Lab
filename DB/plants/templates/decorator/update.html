@@ -2,13 +2,19 @@
 {% block title %} Форма {% endblock %}
 {% block content  %}
 <div class="features">
-    <h1>Изменение данных</h1>
+    <h1>Детали</h1>
 
     <form method = "post" >
         {% csrf_token %}
-        {{form.id}} <br>
+        <p>{{decorator.name}}</p>
+        <p>{{decorator.adress}}</p>
+        <p>{{decorator.phone}}</p>
+        <p>{{decorator.ed}}</p>
+        <p>{{decorator.VUZ}}</p>
+        <p>{{decorator.category}}</p>
+        <p>{{decorator.firm}}</p>
         <span>{{error}}</span>
-        <button class="btn btn-success" type="submit">Изменить</button>
+        <a href="/decorator" class="btn btn-light">Вернуться</a>
     </form>
 </div>
 {% endblock %}

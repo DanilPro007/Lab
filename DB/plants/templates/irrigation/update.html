@@ -2,16 +2,16 @@
 {% block title %} Форма {% endblock %}
 {% block content  %}
 <div class="features">
-    <h1>Изменить данные</h1>
+    <h1>Детали</h1>
 
     <form method = "post" >
         {% csrf_token %}
-        {{form.plant}} <br>
-        {{form.water}}<br>
-        {{form.time}}<br>
-        {{form.date}}<br>
+        <p>{{irrigation.plant}}</p>
+        <p>{{irrigation.water}}</p>
+        <p>{{irrigation.time}}</p>
+        <p>{{irrigation.date}}</p>
         <span>{{error}}</span>
-        <button class="btn btn-info" type="submit">Изменить</button>
+        <a href="/irrigation" class="btn btn-light">Вернуться</a>
     </form>
 </div>
 {% endblock %}

@@ -12,6 +12,7 @@
                 <td> Телефон</td>
                 <td> Фирмы </td>
                 <td> Растения </td>
+                <td> Просмотр </td>
                 <td> Изменение </td>
                 <td> Удаление </td>
             </tr>
@@ -24,6 +25,7 @@
                     <td> {{el.phone}}  </td>
                     <td> {{el.firm}}  </td>
                     <td> {{el.plant}}</td>
+                    <td> <a href="{% url 'proswrk' el.id %}" class="btn btn-light">Посмотреть детально</a> </td>
                     <td> <a href="{% url 'updwrk' el.id %}" class="btn btn-info"> Изменить</a> </td>
                     <td> <a href="{% url 'delwrk' el.id %}" class="btn btn-danger"> Удалить</a> </td>
                 </tr>

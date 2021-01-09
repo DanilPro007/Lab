@@ -1,6 +1,6 @@
 from django.db import models
 
-class Articles(models.Model):
+class Plants(models.Model):
     title = models.CharField('Название', max_length=100)
     age = models.IntegerField('Возраст')
     date = models.DateField('Дата высадки')
@@ -17,7 +17,7 @@ class Articles(models.Model):
 
 class Irrigation(models.Model):
 
-    plant = models.OneToOneField(Articles, on_delete=models.CASCADE,verbose_name ='ID Растение')
+    plant = models.OneToOneField(Plants, on_delete=models.CASCADE,verbose_name ='ID Растение')
     water = models.IntegerField('Нома воды')
     time = models.TimeField('Время полива', default='00:00')
     date= models.CharField(verbose_name ='Частота полива',max_length=100)
@@ -47,7 +47,7 @@ class Worker(models.Model):
     adress = models.CharField(verbose_name='Адрес', max_length=100)
     phone = models.CharField(verbose_name='Телефон',max_length=255 )
     firm = models.ForeignKey(Firms, on_delete=models.CASCADE, verbose_name='Фирмы')
-    plant = models.OneToOneField(Articles, on_delete=models.CASCADE, verbose_name='Растения')
+    plant = models.OneToOneField(Plants, on_delete=models.CASCADE, verbose_name='Растения')
 
     def __str__(self):
         return self.name
@@ -58,9 +58,10 @@ class Worker(models.Model):
         verbose_name_plural = 'Рабочие'
 
 class Decorator(models.Model):
-    name= models.CharField(verbose_name ='ФИО',max_length=100)
+    name = models.CharField(verbose_name ='ФИО',max_length=100)
     adress = models.CharField(verbose_name='Адрес', max_length=100)
     phone = models.CharField(verbose_name='Телефон', max_length=11)
+    ed = models.CharField(verbose_name='Образование', max_length=255)
     VUZ = models.CharField(verbose_name='ВУЗ', max_length=100)
     category = models.CharField(verbose_name='Категория', max_length=100)
     firm = models.ForeignKey(Firms, on_delete=models.CASCADE, verbose_name='Фирмы')

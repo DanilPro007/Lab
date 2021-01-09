@@ -11,6 +11,7 @@
                 <td> Нома воды </td>
                 <td> Время полива</td>
                 <td> Частота полива </td>
+                <td> Просмотр </td>
                 <td> Изменение </td>
                 <td> Удаление </td>
             </tr>
@@ -22,6 +23,7 @@
                     <td> {{el.water}}  </td>
                     <td> {{el.time}}  </td>
                     <td> {{el.date}} </td>
+                    <td> <a href="{% url 'prosir' el.id %}" class="btn btn-light">Посмотреть детально</a> </td>
                     <td> <a href="{% url 'updir' el.id %}" class="btn btn-info"> Изменить</a> </td>
                     <td> <a href="{% url 'delir' el.id %}" class="btn btn-danger"> Удалить</a> </td>
                 </tr>
