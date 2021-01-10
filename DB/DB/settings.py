@@ -40,11 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'dbbackup',
 ]
 
 DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
-DBBACKUP_STORAGE_OPTIONS = {'location': BASE_DIR / 'backup'}
-
+DBBACKUP_FILESYSTEM_DIRECTORY = {'location': 'C:/Users/79815/Desktop/5LAB/DB/backup'}
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -75,18 +75,26 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'DB.wsgi.application'
 
+DBBACKUP_CONNECTOR_MAPPING = {
+    'transaction_hooks.backends.postgis': 'dbbackup.db.mysql.MysqlDumpConnector',
+}
 
+# DBBACKUP_CONNECTORS = {
+#     'default': {
+#         'NAME': 'mydb',
+#         'USER': 'root',
+#         'PASSWORD': '446659',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#     }
+# }
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mydb',
-        'USER': 'root',
-        'PASSWORD': '446659',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.split3'
     }
 }
 
