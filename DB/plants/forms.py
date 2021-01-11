@@ -8,18 +8,22 @@ class PlantsForm(ModelForm):
         widgets={
             "title": TextInput(attrs={
                 'class': 'form-control',
+                'label': 'Название',
                 'placeholder':'Название'
             }),
             "age": NumberInput(attrs={
                 'class': 'form-control',
+                'label': 'Возраст (в годах)',
                 'placeholder': 'Возраст (в годах)'
             }),
             "date": DateInput(attrs={
                 'class': 'form-control',
+                'label': 'Дата высадки',
                 'placeholder': 'Дата высадки'
             }),
             "type": TextInput(attrs={
                 'class': 'form-control',
+                'label': 'Тип',
                 'placeholder': 'Тип'
             }),
         }
@@ -32,19 +36,23 @@ class IrrigationForm(ModelForm):
         widgets={
             "plant": NumberInput(attrs={
                 'class': 'form-control',
+                'label': 'ID Растения',
                 'placeholder':'ID Растения'
             }),
             "water": NumberInput(attrs={
                 'class': 'form-control',
+                'label': 'Нома воды',
                 'placeholder': 'Нома воды'
             }),
             "time": TimeInput(attrs={
 
                 'class': 'form-control',
+                'label': 'Время полива',
                 'placeholder': 'Время полива',
             }),
             "date": TextInput(attrs={
                 'class': 'form-control',
+                'label': 'Частота полива',
                 'placeholder': 'Частота полива'
             }),
         }
@@ -59,10 +67,12 @@ class FirmsForm(ModelForm):
         widgets={
             "name": TextInput(attrs={
                 'class': 'form-control',
+                'label': 'Название фирмы',
                 'placeholder': 'Название фирмы'
             }),
             "adress": TextInput(attrs={
                 'class': 'form-control',
+                'label': 'Юридический адрес',
                 'placeholder': 'Юридический адрес'
             }),
         }
@@ -75,22 +85,27 @@ class WorkerForm(ModelForm):
         widgets={
             "name": TextInput(attrs={
                 'class': 'form-control',
+                'label': 'ФИО',
                 'placeholder': 'ФИО'
             }),
             "adress": TextInput(attrs={
                 'class': 'form-control',
+                'label': 'Адрес',
                 'placeholder': 'Адрес'
             }),
             "phone": TextInput(attrs={
                 'class': 'form-control',
+                'label': 'Телефон',
                 'placeholder': 'Телефон'
             }),
             "plant": NumberInput(attrs={
                 'class': 'form-control',
+                'label': 'ID Растения',
                 'placeholder': 'ID Растения'
             }),
             "firm": NumberInput(attrs={
                 'class': 'form-control',
+                'label': 'ID Фирмы',
                 'placeholder': 'ID Фирмы'
             }),
 
@@ -100,35 +115,42 @@ class WorkerForm(ModelForm):
 class DecoratorForm(ModelForm):
     class Meta:
         model = Decorator
-        fields = ['name','adress','phone','VUZ','category','firm']
+        fields = ['name','adress','phone','ed','VUZ','category','firm']
 
         widgets={
             "name": TextInput(attrs={
                 'class': 'form-control',
+                'label': 'ФИО',
                 'placeholder': 'ФИО'
             }),
             "adress": TextInput(attrs={
                 'class': 'form-control',
+                'label': 'Адрес',
                 'placeholder': 'Адрес'
             }),
             "phone": TextInput(attrs={
                 'class': 'form-control',
+                'label': 'Телефон',
                 'placeholder': 'Телефон'
             }),
             "ed": TextInput(attrs={
                 'class': 'form-control',
+                'label': 'Образование',
                 'placeholder': 'Образование'
             }),
             "VUZ": TextInput(attrs={
                 'class': 'form-control',
+                'label': 'ВУЗ',
                 'placeholder': 'ВУЗ'
             }),
             "category": TextInput(attrs={
                 'class': 'form-control',
+                'label': 'Категория',
                 'placeholder': 'Категория'
             }),
             "firm": NumberInput(attrs={
                 'class': 'form-control',
+                'label': 'ID Фирмы',
                 'placeholder': 'ID Фирмы'
             }),
 
@@ -142,11 +164,13 @@ class TimeForm(ModelForm):
         widgets={
             "date": DateInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Дата работы с насаждением'
+                'placeholder': 'Дата работы с насаждением',
+                'label': 'Дата работы с насаждением'
             }),
             "name": NumberInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'ID Сотрудника'
+                'placeholder': 'ID Сотрудника',
+                'label': 'ID Сотрудника'
             }),
 
 
